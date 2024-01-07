@@ -1,16 +1,20 @@
 package com.DSYJ.project.domain;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Member {
 
-    private Long id;
-
+    @Id
     private String userId;
 
     private String password;
 
     private String name;
 
-    public String Email;
+    private String email;
 
     public String getName() {
         return name;
@@ -28,14 +32,6 @@ public class Member {
         this.userId = userId;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -45,10 +41,10 @@ public class Member {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 }
