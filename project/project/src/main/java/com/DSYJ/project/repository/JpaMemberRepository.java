@@ -21,6 +21,16 @@ public class JpaMemberRepository implements MemberRepository {
     }
 
     @Override
+    public Optional<Member> findByUserIdAndPassword(String userId, String password) {
+        List<Member> result = em.createQuery("select m from Member m where m.userId = :userId and m.password = :password", Member.class)
+                .setParameter("userId", userId)
+                .setParameter("password", password)
+                .getResultList();
+
+        return result.stream().findAny();
+    }
+
+    @Override
     public Optional<Member> findById(Long id) {
         Member member = em.find(Member.class, id);
         return Optional.ofNullable(member);

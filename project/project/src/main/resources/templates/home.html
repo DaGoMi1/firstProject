@@ -1,81 +1,116 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science WebPage</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="CSS/home.css">
+    <script src="https://kit.fontawesome.com/f668b9b848.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
-    <button>로그인</button>
-    <button><a href="/register">회원가입</a></button>
-</header>
+<div class="overlay"></div>
+<div class="login" th:if="${userName == null}">
+    <a href="/login">로그인</a>
+    <a href="/register">회원가입</a>
+</div>
 
-<nav>
-    <h2 class="nav_logo"><a href="/">DATA SCIENCE</a></h2>
-
-    <ul class="nav_menu">
-        <li>
-            <a href="#">학과소개</a>
-            <ul class="nav_submenu">
-                <li><a href="#">학과소개</a></li>
-                <li><a href="#">학생회소개</a></li>
+<div th:if="${userName != null}">
+    <p th:text="'Hello, ' + ${userName}"></p>
+</div>
+<nav class="navbar">
+    <div class="logo">DATA SCIENCE</div>
+    <ul class="menu">
+        <li class="dropdown">
+            <button class="dropbtn">학과소개</button>
+            <ul class="hiddenmenu">
+                <li><a href="major.html">학과소개</a></li>
+                <li><a href="">학생회소개</a></li>
             </ul>
         </li>
-        <li>
-            <a href="#">공지사항</a>
-            <ul class="nav_submenu">
-                <li><a href="#">공지사항</a></li>
-                <li><a href="#">투표</a></li>
+        <li class="dropdown">
+            <button class="dropbtn">공지사항</button>
+            <ul class="hiddenmenu">
+                <li><a href="">공지사항</a></li>
+                <li><a href="">투표</a></li>
             </ul>
         </li>
-        <li>
-            <a href="#">게시판</a>
-            <ul class="nav_submenu">
-                <li><a href="#">자유게시판</a></li>
-                <li><a href="#">대여게시판</a></li>
-                <li><a href="#">Q&A게시판</a></li>
+        <li class="dropdown">
+            <button class="dropbtn">게시판</button>
+            <ul class="hiddenmenu">
+                <li><a href="">자유게시판</a></li>
+                <li><a href="">대여게시판</a></li>
             </ul>
         </li>
-        <li>
-            <a href="#">기타</a>
-            <ul class="nav_submenu">
-                <li><a href="#">시간표</a></li>
+        <li class="dropdown">
+            <button class="dropbtn">기타</button>
+            <ul class="hiddenmenu">
+                <li><a href="./timetable.html">시간표</a></li>
             </ul>
         </li>
     </ul>
+    <button id="hamburger"><i class="fa-solid fa-bars"></i></button>
 </nav>
 
-<div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="./제목 없음1.png" class="d-block w-100" alt="...">
+<main class="main">
+    <div class="wrap">
+        <div>
+
         </div>
-        <div class="carousel-item">
-            <img src="./제목 없음2.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="./제목 없음3.png" class="d-block w-100" alt="...">
+        <br/>
+        <div class="a">
+            <div class="vote"><h4>투표</h4></div>
+            <div class="double">
+                <div class="notice"><h4>공지사항</h4></div>
+                <div class="board"><h4>게시판</h4></div>
+            </div>
         </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
+</main>
+<br/>
+<footer>
+    <div class="footer_title">
+        <h2>한국해양대학교 데이터사이언스</h2>
+    </div>
 
+    <div class="footer_main">
+        <div class="rows">
+            <h3>Developers</h3>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-<script src="./main.js"></script>
+            <ul>
+                <h4>Front-end</h4>
+                <li>SanginJeong</li>
+                <li>Zhyeonn</li>
+            </ul>
+
+            <ul>
+                <h4>Back-end</h4>
+                <li>dagomi</li>
+                <li>yarime</li>
+            </ul>
+        </div>
+
+        <div class="rows">
+            <h3>Linked</h3>
+
+            <ul>
+                <li><a href="https://www.instagram.com/kmou_datascience/" target="_blank">인스타그램</a></li>
+                <li><a href="https://youtu.be/RJZF3WwqfYQ?si=0PO7fgNtqQMnlIuh" target="_blank">학과소개</a></li>
+                <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">공식 홈페이지</a></li>
+                <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">종합정보시스템</a></li>
+                <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">KMOU_LMS</a></li>
+                <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">KMOU 홈페이지</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div>
+        <h4>오시는 길 : (49112) 부산광역시 영도구 태종로 727(동삼동) 한국해양대학교</h4>
+        <h4>학과 사무실 : 051-410-4370</h4>
+        <h4>문의 : sanginjeong07@gmail.com</h4>
+    </div>
+</footer>
+
+<script src="/main.js"></script>
 </body>
 </html>

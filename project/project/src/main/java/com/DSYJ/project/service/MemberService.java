@@ -37,5 +37,10 @@ public class MemberService {
     public Optional<Member> findOne(String memberId) {
         return memberRepository.findByUserId(memberId);
     }
+
+    public Member findByUserIdAndPassword(String userId, String password) {
+        return memberRepository.findByUserIdAndPassword(userId, password)
+                .orElse(null); // orElse를 사용하여 Optional에서 Member 객체를 꺼냅니다.
+    }
 }
 
