@@ -25,7 +25,7 @@ public class RegisterController {
         return "register";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/register-process")
     public String passwordChecking(@ModelAttribute MemberForm form,
                                    @RequestParam String password2) {
         Member member = new Member();
