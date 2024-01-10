@@ -43,18 +43,16 @@ public class MemberService {
                 .orElse(null); // orElse를 사용하여 Optional에서 Member 객체를 꺼냅니다.
     }
 
-    public void updateMember(Member member){
-        Member existingMember = memberRepository.
-                findById(member.getId()).orElse(null);
+    @Transactional
+    public void updateMember(Member member) {
+        Member existingMember = memberRepository.findById(member.getId())
+                .orElseThrow(() -> new IllegalArgumentException("사용자가 존재하지 않습니다."));
 
-        if (existingMember != null) {
-            existingMember.setName(member.getName());
-            // 저장
-            memberRepository.save(existingMember);
-        } else {
-            // 사용자가 존재하지 않는 경우에 대한 처리 로직 추가
-            throw new IllegalArgumentException("사용자가 존재하지 않습니다.");
-        }
+        existingMember.setName(member.getName());
+        existingMember.setEmail(member.getEmail());
+        existingMember.setPassword(member.getPassword());
+
+        memberRepository.save(existingMember);
     }
 }
 

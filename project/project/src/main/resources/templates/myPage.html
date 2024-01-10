@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div class="container">
+
+    <form action="/updateUserInformation" method="post">
+        <div class="form-group">
+            <label for="name">이름 수정</label>
+            <p th:text="${name}"></p>
+            <input type="text" id="name" name="name" placeholder="수정할 이름">
+
+            <br>
+
+            <label for="email">메일 수정</label>
+            <p th:text="${email}"></p>
+            <input type="text" id="email" name="email" placeholder="수정할 메일">
+
+            <br>
+
+            <label for="currentPassword">현재 비밀번호</label>
+            <input type="password" id="currentPassword" name="password" placeholder="현재 비밀번호">
+
+            <label for="newPassword">새로운 비밀번호</label>
+            <input type="password" id="newPassword" name="password2" placeholder="새로운 비밀번호">
+
+            <label for="newPassword2">새로운 비밀번호</label>
+            <input type="password" id="newPassword2" name="password3" placeholder="새로운 비밀번호 확인">
+        </div>
+        <button type="submit">등록</button>
+    </form>
+
+</div>
+
+</body>
+</html>
