@@ -41,6 +41,9 @@ public class MemoryMemberRepository implements MemberRepository {
                 .findAny();
     }
 
+    public void updateMember(Long memberId, Member member) {
+    }
+
     @Override
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
