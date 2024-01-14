@@ -17,10 +17,9 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    public String join(Member member) {
+    public void join(Member member) {
         validateDuplicateMember(member); //중복 회원 검증
         memberRepository.save(member);
-        return member.getUserId();
     }
 
     private void validateDuplicateMember(Member member) {

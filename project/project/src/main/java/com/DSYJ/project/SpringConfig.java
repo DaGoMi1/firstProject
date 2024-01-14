@@ -1,9 +1,8 @@
 package com.DSYJ.project;
 
-import com.DSYJ.project.repository.JpaMemberRepository;
-import com.DSYJ.project.repository.MemberRepository;
-import com.DSYJ.project.repository.MemoryMemberRepository;
+import com.DSYJ.project.repository.*;
 import com.DSYJ.project.service.MemberService;
+import com.DSYJ.project.service.PostingService;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,7 +24,17 @@ public class SpringConfig {
     }
 
     @Bean
+    public PostingService postingService() {
+        return new PostingService(postingRepository());
+    }
+
+    @Bean
     public MemberRepository memberRepository() {
         return new JpaMemberRepository(em);
+    }
+
+    @Bean
+    public PostingRepository postingRepository() {
+        return new JpaPostingRepository(em);
     }
 }
