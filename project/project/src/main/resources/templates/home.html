@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="CSS/home.css">
+    <link rel="stylesheet" href="CSS/home.css" />
     <script src="https://kit.fontawesome.com/f668b9b848.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="overlay"></div>
 <div class="login" th:if="${userName == null}">
     <a href="/login">로그인</a>
     <a href="/register">회원가입</a>
@@ -18,21 +17,22 @@
     <a href="/edit"><p th:text="${userName}"></p></a>
     <a href="logout">로그아웃</a>
 </div>
+
 <nav class="navbar">
-    <div class="logo">DATA SCIENCE</div>
+    <div class="logo"><a href="/">DATA SCIENCE</a></div>
     <ul class="menu">
         <li class="dropdown">
             <button class="dropbtn">학과소개</button>
             <ul class="hiddenmenu">
-                <li><a href="major.html">학과소개</a></li>
-                <li><a href="">학생회소개</a></li>
+                <li><a href="/">학과소개</a></li>
+                <li><a href="/">학생회소개</a></li>
             </ul>
         </li>
         <li class="dropdown">
             <button class="dropbtn">공지사항</button>
             <ul class="hiddenmenu">
-                <li><a href="">공지사항</a></li>
-                <li><a href="">투표</a></li>
+                <li><a href="/notice">공지사항</a></li>
+                <li><a href="/">투표</a></li>
             </ul>
         </li>
         <li class="dropdown">
@@ -45,73 +45,89 @@
         <li class="dropdown">
             <button class="dropbtn">기타</button>
             <ul class="hiddenmenu">
-                <li><a href="./timetable.html">시간표</a></li>
+                <li><a href="/">시간표</a></li>
             </ul>
         </li>
     </ul>
     <button id="hamburger"><i class="fa-solid fa-bars"></i></button>
 </nav>
 
+<div class="carousel">
+    <div class="carousel-container">
+        <div class="inner">
+            <img src="./images/제목 없음1.png" alt="">
+        </div>
+        <div class="inner">
+            <img src="./images/제목 없음2.png" alt="">
+        </div>
+        <div class="inner">
+            <img src="./images/제목 없음3.png" alt="">
+        </div>
+    </div>
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+</div>
+
 <main class="main">
     <div class="wrap">
-        <div>
-
-        </div>
-        <br/>
-        <div class="a">
-            <div class="vote"><h4>투표</h4></div>
+        <div class="frame">
             <div class="double">
-                <div class="notice"><h4>공지사항</h4></div>
-                <div class="board"><h4>게시판</h4></div>
+                <div class="contents1">학과소개</div>
+                <div class="contents1">진행중인 투표</div>
+            </div>
+            <div class="double">
+                <div class="contents2">공지사항</div>
+                <div class="contents2">자유게시판</div>
+                <div class="contents2">시간표</div>
             </div>
         </div>
     </div>
 </main>
-<br/>
+
 <footer>
     <div class="footer_title">
         <h2>한국해양대학교 데이터사이언스</h2>
     </div>
 
-    <div class="footer_main">
-        <div class="rows">
-            <h3>Developers</h3>
+    <div class="footer_frame">
+        <div class="footer_main">
+            <div class="rows">
+                <h3>Developers</h3>
+                <div>
+                    <h4>Front-end</h4>
+                    <p>sanginjeong | zhyeonn</p>
+                    <h4>Back-end</h4>
+                    <p>dagomi | yarime</p>
+                </div>
+            </div>
 
-            <ul>
-                <h4>Front-end</h4>
-                <li>SanginJeong</li>
-                <li>Zhyeonn</li>
-            </ul>
+            <div class="rows">
+                <h3>KMOU</h3>
+                <ul>
+                    <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">KMOU 홈페이지</a></li>
+                    <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">KMOU_LMS</a></li>
+                    <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">종합정보시스템</a></li>
+                    <li><a href="https://cts.kmou.ac.kr/" target="_blank">Ocean-CTS</a></li>
+                </ul>
+            </div>
 
-            <ul>
-                <h4>Back-end</h4>
-                <li>dagomi</li>
-                <li>yarime</li>
-            </ul>
+            <div class="rows">
+                <h3>Data Science</h3>
+                <ul>
+                    <li><a href="https://www.instagram.com/kmou_datascience/" target="_blank">인스타그램</a></li>
+                    <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">학과 홈페이지</a></li>
+                    <li><a href="https://youtu.be/RJZF3WwqfYQ?si=0PO7fgNtqQMnlIuh" target="_blank">학과 소개 영상</a></li>
+                </ul>
+            </div>
         </div>
-
-        <div class="rows">
-            <h3>Linked</h3>
-
-            <ul>
-                <li><a href="https://www.instagram.com/kmou_datascience/" target="_blank">인스타그램</a></li>
-                <li><a href="https://youtu.be/RJZF3WwqfYQ?si=0PO7fgNtqQMnlIuh" target="_blank">학과소개</a></li>
-                <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">공식 홈페이지</a></li>
-                <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">종합정보시스템</a></li>
-                <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">KMOU_LMS</a></li>
-                <li><a href="https://www.kmou.ac.kr/di/main.do" target="_blank">KMOU 홈페이지</a></li>
-            </ul>
-
+        <div>
+            <h4>오시는 길 : (49112) 부산광역시 영도구 태종로 727(동삼동) 한국해양대학교</h4>
+            <h4>학과 사무실 : 공대1관 127호 | ☎️ 051-410-4370</h4>
+            <h4>문의 : sanginjeong07@gmail.com</h4>
         </div>
-    </div>
-
-    <div>
-        <h4>오시는 길 : (49112) 부산광역시 영도구 태종로 727(동삼동) 한국해양대학교</h4>
-        <h4>학과 사무실 : 051-410-4370</h4>
-        <h4>문의 : sanginjeong07@gmail.com</h4>
     </div>
 </footer>
 
-<script src="/main.js"></script>
+<script src="JS/home.js"></script>
 </body>
 </html>
