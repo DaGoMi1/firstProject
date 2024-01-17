@@ -1,18 +1,10 @@
-package com.DSYJ.project.domain;
+package com.DSYJ.project.controller;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
 public class ScheduleDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private int grade;
-    private String day_of_week;
+    private String days;
     private String lectureName;
     private int startTime;
     private int endTime;
@@ -58,12 +50,12 @@ public class ScheduleDTO {
         this.lectureName = lectureName;
     }
 
-    public String getDay_of_week() {
-        return day_of_week;
+    public String getDays() {
+        return days;
     }
 
-    public void setDay_of_week(String day) {
-        this.day_of_week = day;
+    public void setDays(String day) {
+        this.days = day;
     }
 
     public int getGrade() {

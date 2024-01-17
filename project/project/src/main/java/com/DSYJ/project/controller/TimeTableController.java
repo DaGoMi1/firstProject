@@ -1,8 +1,7 @@
 package com.DSYJ.project.controller;
 
-import com.DSYJ.project.domain.ScheduleDTO;
-import com.DSYJ.project.service.PostingService;
-import com.DSYJ.project.service.ScheduleDTOService;
+import com.DSYJ.project.domain.Schedule;
+import com.DSYJ.project.service.ScheduleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,11 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/timeTable")
 public class TimeTableController {
 
-    private final ScheduleDTOService scheduleDTOService;
+    private final ScheduleService scheduleService;
 
-    public TimeTableController(ScheduleDTOService scheduleDTOService) {
-        this.scheduleDTOService = scheduleDTOService;
+    public TimeTableController(ScheduleService scheduleService) {
+        this.scheduleService = scheduleService;
     }
+
 
     @GetMapping("")
     public String timeTable() {
@@ -27,10 +27,14 @@ public class TimeTableController {
     }
 
     @PostMapping("/save-schedule")
-    public ResponseEntity<?> saveSchedule(@RequestBody ScheduleDTO scheduleDTO) {
-        // 받은 데이터를 scheduleDTO 객체로 매핑하여 처리
-        scheduleDTOService.scheduleSave(scheduleDTO);
-        // 예시: 받은 데이터를 그대로 응답
-        return new ResponseEntity<>(scheduleDTO, HttpStatus.OK);
+    public ResponseEntity<String> saveSchedule(@RequestBody Schedule schedule) {
+        try {
+            // 받은 데이터를 scheduleDTO 객체로 매핑하여 처리
+            scheduleService.scheduleSave(schedule);
+            // 예시: 받은 데이터를 그대로 응답
+            return ResponseEntity.ok("Data saved successfully!");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving data: " + e.getMessage());
+        }
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -178,7 +178,7 @@
 <div class="addScheduleModal">
     <h3>강의 정보 입력</h3>
     <div>강의명</div>
-    <input type="text" id="lecture_name"/>
+    <input type="text" id="lecture_name" name="lecturename"/>
 
     <div>요일</div>
     <input type="radio" name="radio" value="월"/>월
@@ -188,7 +188,7 @@
     <input type="radio" name="radio" value="금"/>금
 
     <div>시작 시간</div>
-    <select id="start_time">
+    <select id="start_time" name="starttime">
         <option>9</option>
         <option>10</option>
         <option>11</option>
@@ -201,7 +201,7 @@
     </select>
 
     <div>종료 시간</div>
-    <select id="end_time">
+    <select id="end_time" name="endtime">
         <option>10</option>
         <option>11</option>
         <option>12</option>
@@ -214,7 +214,7 @@
     </select>
 
     <div>컬러 선택</div>
-    <input type="color" id="select_color"/>
+    <input type="color" id="select_color" name="color"/>
 
     <div class="buttonArea">
         <button id="cancelAddSchedule">취소</button>
