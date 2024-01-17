@@ -44,4 +44,10 @@ public class JpaPostingRepository implements PostingRepository{
 
         return result.stream().findAny();
     }
+
+    @Override
+    public List<Posting> findAll() {
+        return em.createQuery("select p from Posting p", Posting.class)
+                .getResultList();
+    }
 }

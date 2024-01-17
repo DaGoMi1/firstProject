@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Posting {
     @Id
@@ -26,6 +28,16 @@ public class Posting {
     private String file;
 
     private String link;
+
+    private LocalDateTime created_At;
+
+    public LocalDateTime getCreated_At() {
+        return created_At;
+    }
+
+    public void setCreated_At(LocalDateTime created_At) {
+        this.created_At = created_At;
+    }
 
     public Long getId() {
         return Id;

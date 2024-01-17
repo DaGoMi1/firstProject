@@ -63,5 +63,7 @@ public class JpaMemberRepository implements MemberRepository {
     public void updateMember(Long memberId, Member member) {
         em.merge(member);
     }
+
+
 }
 
