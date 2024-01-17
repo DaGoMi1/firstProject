@@ -1,8 +1,10 @@
 package com.DSYJ.project;
 
+import com.DSYJ.project.domain.ScheduleDTO;
 import com.DSYJ.project.repository.*;
 import com.DSYJ.project.service.MemberService;
 import com.DSYJ.project.service.PostingService;
+import com.DSYJ.project.service.ScheduleDTOService;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -36,5 +38,15 @@ public class SpringConfig {
     @Bean
     public PostingRepository postingRepository() {
         return new JpaPostingRepository(em);
+    }
+
+    @Bean
+    public ScheduleDTOService scheduleDTOService() {
+        return new ScheduleDTOService(scheduleDTORepository());
+    }
+
+    @Bean
+    public ScheduleDTORepository scheduleDTORepository() {
+        return new JpaScheduleDTORepository(em);
     }
 }

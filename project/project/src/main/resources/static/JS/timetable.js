@@ -175,7 +175,7 @@ const deleteSchedule = (day,grade,startTime,endTime) => {
     }
 }
 
-const url = '/api/save-schedule';
+const url = '/timeTable/save-schedule';
 const postApi = async () => {
     try {
         const response = await fetch(url, {
