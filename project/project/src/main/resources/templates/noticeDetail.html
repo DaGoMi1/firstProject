@@ -11,7 +11,7 @@
     <p>글 작성자: <span th:text="${posting.author}"></span></p>
     <p>글 내용: <span th:text="${posting.content}"></span></p>
     <!-- 이미지 렌더링 -->
-    <img th:if="${posting.image != null}" th:src="@{'/image/' + ${posting.image}}" alt="이미지">
+    <img th:if="${posting.image != null}" th:src="@{'/IMG/' + ${posting.image}}" alt="이미지">
 
     <!-- 비디오 렌더링 -->
     <video th:if="${posting.video != null}" controls>
