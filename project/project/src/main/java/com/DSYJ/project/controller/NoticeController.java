@@ -44,36 +44,46 @@ public class NoticeController {
         posting.setPassword(form.getPassword());
         posting.setCreated_At(LocalDateTime.now());
 
-        if (form.getImage() != null) {
+        if (form.getImage() != null && !form.getImage().isEmpty()) {
             // 이미지를 저장하고 그에 대한 URL을 데이터베이스에 저장
             String image = postingService.saveImage(form.getImage());
             posting.setImage(image);
+        } else {
+            posting.setImage(null);
         }
-        if (form.getVideo() != null) {
+
+        if (form.getVideo() != null && !form.getVideo().isEmpty()) {
             // 이미지를 저장하고 그에 대한 URL을 데이터베이스에 저장
             String video = postingService.saveVideo(form.getVideo());
             posting.setVideo(video);
+        } else {
+            posting.setVideo(null);
         }
 
-        if (form.getFile() != null) {
+        if (form.getFile() != null && !form.getFile().isEmpty()) {
             // 파일을 저장하고 그에 대한 URL을 데이터베이스에 저장
             String file = postingService.saveFile(form.getFile());
             posting.setFile(file);
+        } else {
+            posting.setFile(null);
         }
 
-        posting.setLink(form.getLink());
+        if (form.getLink().isEmpty()) {
+            posting.setLink(null);
+        } else {
+            posting.setLink(form.getLink());
+        }
 
         postingService.postSave(posting);
         return "redirect:/notice";
     }
 
     @GetMapping("/notice/{id}")
-    public String viewNotice(@PathVariable Long id,Model model){
+    public String viewNotice(@PathVariable Long id, Model model) {
+        Optional<Posting> postingOptional = postingService.postId(id);
 
-        // 글의 세부 내용을 가져오는 메서드 호출
-        Optional<Posting> posting = postingService.postId(id);
-
-        // Model에 해당 글의 정보를 추가
+        // Optional이 값이 있는 경우에만 모델에 추가
+        Posting posting = postingOptional.orElse(null);
         model.addAttribute("posting", posting);
 
         // 상세 보기 페이지로 이동
