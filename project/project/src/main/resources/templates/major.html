@@ -7,8 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-<div class="overlay"></div>
-
 <div class="login" th:if="${userName == null}">
     <a href="/login">로그인</a>
     <a href="/register">회원가입</a>
@@ -20,20 +18,20 @@
 </div>
 
 <nav class="navbar">
-    <div class="logo"><a href="./home.html">DATA SCIENCE</a></div>
+    <div class="logo"><a href="/">DATA SCIENCE</a></div>
     <ul class="menu">
         <li class="dropdown">
             <button class="dropbtn">학과소개</button>
             <ul class="hiddenmenu">
-                <li><a href="/major">학과소개</a></li>
-                <li><a href="/student">학생회소개</a></li>
+                <li><a href="/DI/major">학과소개</a></li>
+                <li><a href="/DI/student">학생회소개</a></li>
             </ul>
         </li>
         <li class="dropdown">
             <button class="dropbtn">공지사항</button>
             <ul class="hiddenmenu">
-                <li><a href="./notice.html">공지사항</a></li>
-                <li><a href="./vote.html">투표</a></li>
+                <li><a href="/notice/notice">공지사항</a></li>
+                <li><a href="/notice/vote">투표</a></li>
             </ul>
         </li>
         <li class="dropdown">
@@ -46,7 +44,7 @@
         <li class="dropdown">
             <button class="dropbtn">기타</button>
             <ul class="hiddenmenu">
-                <li><a href="./timetable.html">시간표</a></li>
+                <li><a href="/timeTable">시간표</a></li>
             </ul>
         </li>
     </ul>
@@ -268,6 +266,6 @@
     </div>
 </footer>
 
-<script src="JS/home.js"></script>
+<script src="/JS/home.js"></script>
 </body>
 </html>

@@ -9,7 +9,6 @@
     <script src="https://kit.fontawesome.com/f668b9b848.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="overlay"></div>
 <div class="login" th:if="${userName == null}">
     <a href="/login">로그인</a>
     <a href="/register">회원가입</a>
@@ -19,28 +18,29 @@
     <a href="/edit"><p th:text="${userName}"></p></a>
     <a href="logout">로그아웃</a>
 </div>
+
 <nav class="navbar">
     <div class="logo"><a href="/">DATA SCIENCE</a></div>
     <ul class="menu">
         <li class="dropdown">
             <button class="dropbtn">학과소개</button>
             <ul class="hiddenmenu">
-                <li><a href="/">학과소개</a></li>
-                <li><a href="/">학생회소개</a></li>
+                <li><a href="/DI/major">학과소개</a></li>
+                <li><a href="/DI/student">학생회소개</a></li>
             </ul>
         </li>
         <li class="dropdown">
             <button class="dropbtn">공지사항</button>
             <ul class="hiddenmenu">
-                <li><a href="/notice">공지사항</a></li>
-                <li><a href="/">투표</a></li>
+                <li><a href="/notice/notice">공지사항</a></li>
+                <li><a href="/notice/vote">투표</a></li>
             </ul>
         </li>
         <li class="dropdown">
             <button class="dropbtn">게시판</button>
             <ul class="hiddenmenu">
-                <li><a href="/">자유게시판</a></li>
-                <li><a href="/">대여게시판</a></li>
+                <li><a href="">자유게시판</a></li>
+                <li><a href="">대여게시판</a></li>
             </ul>
         </li>
         <li class="dropdown">

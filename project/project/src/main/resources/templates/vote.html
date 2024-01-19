@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/home.css"/>
+    <link rel="stylesheet" href="/CSS/vote.css"/>
     <title>Document</title>
-    <link rel="stylesheet" href="/CSS/home.css" />
-    <script src="https://kit.fontawesome.com/f668b9b848.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="login" th:if="${userName == null}">
@@ -55,27 +55,20 @@
 <main class="main">
     <div class="wrap">
         <br />
-        <h1 style="text-align: center; font-size: 40px">공지사항</h1>
-        <div class="table">
-            <table>
-                <thead>
-                <tr>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>작성 날짜</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="notice : ${notice} "  th:attr="data-href=@{'/notice/' + ${notice.id}}" onclick="window.location.href = this.getAttribute('data-href');">
-                    <td th:text="${notice.id}"></td>
-                    <td th:text="${notice.title}"></td>
-                    <td th:text="${notice.author}"></td>
-                    <td th:text="${notice.created_At}"></td>
-                </tbody>
-            </table>
+        <h1 style="text-align: center; font-size: 40px">투표</h1>
+        <div class="frame">
+            <span class="topic">투표 주제</span>
+            <div class="content">
+                <ul>
+                    <li>내용1</li>
+                    <li>내용2</li>
+                </ul>
+            </div>
+            <div>
+                <button class="button">찬성</button>
+                <button class="button">반대</button>
+            </div>
         </div>
-        <div><button class="write"><a href="/notice/write">글쓰기</a></button></div>
     </div>
 </main>
 <script src="/JS/home.js"></script>

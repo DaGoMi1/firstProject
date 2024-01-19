@@ -4,16 +4,14 @@ import com.DSYJ.project.domain.Posting;
 import com.DSYJ.project.service.PostingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/notice")
 public class NoticeController {
 
     private final PostingService postingService;
@@ -28,6 +26,11 @@ public class NoticeController {
 
         model.addAttribute("notice", notice);
         return "notice";
+    }
+
+    @GetMapping("/vote")
+    public String vote(Model model) {
+        return "vote";
     }
 
     @GetMapping("/write")
